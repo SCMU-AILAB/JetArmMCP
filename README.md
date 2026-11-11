@@ -152,4 +152,4 @@ python3 tests/sdk_vectors.py
 
 ## 许可证
 
-[MIT](LICENSE) © 2026 Yao0454
+[MIT](LICENSE) © 2026 Jason Feng
