@@ -1,0 +1,4 @@
+target/
+*.tmp
+# Hiwonder 官方 SDK 源码：上游仓库未声明许可证，不随本仓库分发
+reference/

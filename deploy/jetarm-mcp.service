@@ -1,0 +1,14 @@
+[Unit]
+Description=JetArm MCP server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=jetson
+ExecStart=/home/jetson/JetArmMCP/target/release/jetarm-mcp
+Restart=on-failure
+RestartSec=3
+Environment=RUST_LOG=info
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,46 @@
+# jetarm-mcp 配置示例。所有项都有缺省值，只写要改的即可。
+# 放在 ~/.config/jetarm-mcp/config.toml，或用 --config 指定。
+
+[server]
+bind = "0.0.0.0"
+port = 8848
+
+[serial]
+device = "/dev/ttyUSB0"
+baud = 1000000
+read_timeout = 0.5   # 秒
+read_retries = 3
+
+[servos]
+joints = [1, 2, 3, 4, 5]        # 底座、肩、肘、腕俯仰、腕旋转
+gripper = 10
+direction = [1, -1, -1, -1, 1]  # 关节角正方向 → 脉冲方向
+deg_per_pulse = 0.24
+torque_on_cmd = 0x0B            # 待实机确认：若"上力"实际让舵机变软，改成 0x0C
+
+[servos.limits]                 # 未列出的舵机为 [0, 1000]
+# 2 = [100, 900]
+
+[motion]
+max_pulse_per_sec = 250.0       # ≈ 60°/s
+min_duration = 0.5
+max_duration = 30.0
+min_z = 0.01                    # move_to 最低末端高度（米）
+
+[motion.home]                   # 初始姿态（实测开机静止姿态）
+1 = 512
+2 = 761
+3 = 0
+4 = 320
+5 = 522
+
+[gripper]                       # 待实机确认
+open = 200
+close = 500
+
+[camera]
+device = "/dev/video0"
+width = 640
+height = 480
+warmup_frames = 5
+jpeg_quality = 80
