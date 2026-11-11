@@ -2,6 +2,9 @@
 name = "jetarm-mcp"
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
+description = "MCP server for the Hiwonder JetArm robot arm"
+repository = "https://github.com/SCMU-AILAB/JetArmMCP"
 
 [dependencies]
 rmcp = { version = "3.9", features = ["server", "macros", "transport-streamable-http-server"] }
